@@ -1,0 +1,121 @@
+--create database library_project
+use library_project
+
+/*create table library_2(namee varchar(10),
+library_id numeric(10) primary key)
+*/
+/*create table librarian_2(e_id numeric(10)primary key,
+fname varchar(10)not null,
+lname varchar(10)not null,
+phonenum numeric(10),library_id numeric(10) foreign key(library_id)references library_2(library_id));*/
+
+/*create table user_1(fname varchar(20) NOT NULL,
+lname varchar(20) not null,
+id Numeric(10)  primary key,
+mail varchar(50),
+library_id numeric(10),e_id numeric(10),foreign key (library_id)references library_2(library_id),
+foreign key (e_id) references librarian_2(e_id));*/
+
+
+
+
+
+/*create table library_loc(locationn varchar(20),
+library_id numeric(10),
+primary key(locationn,library_id),foreign key(library_id)references library_2 (library_id));*/
+
+/*create table book_2(title varchar(10) primary key,
+catagory varchar(20),id numeric(10),
+library_id numeric(10),
+foreign key (id) references user_1(id),
+foreign key (library_id )references library_2(library_id));*/
+
+/*create table search_1(id numeric (10),title varchar(10),primary key(id,title),foreign key(id) references user_1(id),
+foreign key (title) references book_2(title))*/
+
+--insert into library_2
+--values ('jarir',1234567890)
+
+/*insert into librarian_2
+values(123456497,'abdullah','altouri',0590146634,1234567890)*/
+
+--insert into librarian_2
+--values(123245237,'naif','alotaibi',0568780897,1234567890)
+
+/*insert into librarian_2
+values(1222343456,'hamzah','aljohani',0532198506,1234567890)*/
+
+--insert into librarian_2
+--values(123212456,'saad','alharbi',0598347583,1234567890)
+
+--insert into user_1
+--values('saad','aljohani',112345678,'saad@gmail.com',1234567890,123212456)
+--insert into user_1
+--values ('majed','bukhary',1212323422,'majed@gmail.com',1234567890,123212456)
+--insert into user_1
+--values('hussam','alshli',121337563,'husaam@gmail.com',1234567890,1222343456)
+--insert into user_1
+--values('mohsen','saleh',1213746382,'mohsen@gmail.com',1234567890,123245237)
+/*insert into library_loc
+values('madina42314',1234567890)
+*/
+/*insert into library_loc
+values('jeddah42762',1234567890)*/
+
+--insert into book_2
+--values('5 am club','sucsses',1213746382,1234567890)
+
+/*insert into book_2
+values('rich dad','money',1213746382,1234567890)
+*/
+/*insert book_2
+values('history','story',1213746382,1234567890)*/
+
+/*insert into book_2
+values('rich world','money',121337563,1234567890)*/
+
+/*insert into book_2
+values('hello life','philosophy',121337563,1234567890)*/
+
+/*insert into book_2
+values('love life','philosophy',1212323422,1234567890)*/
+
+
+/*insert into book_2
+values('your brain','Mentality',112345678,1234567890)
+*/
+
+--insert into search_1
+--values(112345678,'your brain')
+
+--insert into search_1
+--values(1212323422,'love life')
+
+--insert into search_1
+--values(121337563,'hello life')
+
+--insert into search_1
+--values(121337563,'rich world')
+
+--insert into search_1
+--values(1213746382,'history')
+
+--insert into search_1
+--values(1213746382,'rich dad')
+
+--insert into search_1
+--values(1213746382,'5 am club')
+/*insert into search_1
+values(121337563,'5 am club')*/
+
+/*select fname ,lname , title
+from user_1 as u,book_2 as b
+where u.id=b.id*/
+
+/*select l.fname,l.lname,u.fname,u.lname
+from librarian_2 as l,user_1 as u
+where l.e_id=u.e_id*/
+
+select u.fname,u.lname,b.title
+from search_1 as s,book_2 as b,user_1 as u
+where s.title=b.title and  u.id=s.id
